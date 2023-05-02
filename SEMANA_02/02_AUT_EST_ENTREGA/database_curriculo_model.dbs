@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Sqlite" id="Project-c4a" database="Sqlite" >
+	<schema name="Default" >
+		<table name="candidatos" >
+			<column name="candidato_id" type="INTEGER" jt="4" mandatory="y" />
+			<column name="candidato_nome" type="VARCHAR" length="255" jt="12" mandatory="y" />
+			<column name="candidato_telefone" type="VARCHAR" length="32" jt="12" mandatory="y" />
+			<column name="candidato_email" type="VARCHAR" length="255" jt="12" mandatory="y" />
+			<column name="candidato_descricao" type="LONGTEXT" jt="-1" />
+			<index name="pk_candidatos" unique="PRIMARY_KEY" >
+				<column name="candidato_id" />
+			</index>
+		</table>
+		<table name="enderecos" >
+			<column name="endereco_id" type="INTEGER" jt="4" mandatory="y" />
+			<column name="endereco_cep" type="VARCHAR" length="8" jt="12" mandatory="y" />
+			<column name="candidato_id" type="INTEGER" jt="4" />
+			<column name="endereco_logradouro" type="VARCHAR" length="255" jt="12" mandatory="y" />
+			<column name="endereco_numero" type="INTEGER" jt="4" mandatory="y" />
+			<column name="endereco_complemento" type="VARCHAR" length="255" jt="12" mandatory="y" />
+			<index name="pk_enderecos" unique="PRIMARY_KEY" >
+				<column name="endereco_id" />
+			</index>
+			<fk name="fk_enderecos" to_schema="Default" to_table="candidatos" >
+				<fk_column name="candidato_id" pk="candidato_id" />
+			</fk>
+		</table>
+		<table name="experiencias" >
+			<column name="experiencia_id" type="INTEGER" jt="4" mandatory="y" />
+			<column name="experiencia_cargo" prior="experiencia_nome" type="VARCHAR" length="255" jt="12" mandatory="y" />
+			<column name="candidato_id" type="INTEGER" jt="4" />
+			<column name="experiencia_organizacao" type="VARCHAR" length="255" jt="12" mandatory="y" />
+			<column name="experiencia_descricao" type="LONGTEXT" jt="-1" />
+			<column name="experiencia_inicio" type="DATE" jt="91" mandatory="y" />
+			<column name="experiencia_fim" type="DATE" jt="91" mandatory="y" />
+			<index name="pk_experiencias" unique="PRIMARY_KEY" >
+				<column name="experiencia_id" />
+			</index>
+			<fk name="fk_experiencias" to_schema="Default" to_table="candidatos" >
+				<fk_column name="candidato_id" pk="candidato_id" />
+			</fk>
+		</table>
+		<table name="formacoes" >
+			<column name="formacao_id" type="INTEGER" jt="4" mandatory="y" />
+			<column name="formacao_nome" type="VARCHAR" length="255" jt="12" mandatory="y" />
+			<column name="candidato_id" type="INTEGER" jt="4" />
+			<column name="formacao_instituicao" type="VARCHAR" length="255" jt="12" mandatory="y" />
+			<column name="formacao_inicio" type="DATE" jt="91" mandatory="y" />
+			<column name="formacaio_fim" type="DATE" jt="91" mandatory="y" />
+			<index name="pk_formacoes" unique="PRIMARY_KEY" >
+				<column name="formacao_id" />
+			</index>
+			<fk name="fk_formacoes" to_schema="Default" to_table="candidatos" >
+				<fk_column name="candidato_id" pk="candidato_id" />
+			</fk>
+		</table>
+		<table name="habilidades" >
+			<column name="habilidade_id" type="INTEGER" jt="4" mandatory="y" />
+			<column name="habilidade_nome" type="VARCHAR" length="255" jt="12" mandatory="y" />
+			<column name="candidato_id" type="INTEGER" jt="4" />
+			<column name="habilidade_nivel" type="INTEGER" jt="4" mandatory="y" />
+			<index name="pk_habilidades" unique="PRIMARY_KEY" >
+				<column name="habilidade_id" />
+			</index>
+			<fk name="fk_habilidades" to_schema="Default" to_table="candidatos" >
+				<fk_column name="candidato_id" pk="candidato_id" />
+			</fk>
+		</table>
+		<table name="persondalides" prior="persondalides_0" >
+			<column name="personalidade_id" type="INTEGER" jt="4" mandatory="y" />
+			<column name="personalidade_nome" type="VARCHAR" length="255" jt="12" mandatory="y" />
+			<column name="candidato_id" type="INTEGER" jt="4" />
+			<column name="personalidade_nivel" type="INTEGER" jt="4" mandatory="y" />
+			<index name="pk_persondalides_0" unique="PRIMARY_KEY" >
+				<column name="personalidade_id" />
+			</index>
+			<fk name="fk_persondalides_0" to_schema="Default" to_table="candidatos" >
+				<fk_column name="candidato_id" pk="candidato_id" />
+			</fk>
+		</table>
+		<table name="realizacoes" >
+			<column name="realizacao_id" type="INTEGER" jt="4" mandatory="y" />
+			<column name="realizacao_titulo" type="VARCHAR" length="255" jt="12" mandatory="y" />
+			<column name="candidato_id" type="INTEGER" jt="4" />
+			<column name="realizacao_ano" type="VARCHAR" length="4" jt="12" mandatory="y" />
+			<column name="realizacao_descricao" type="LONGTEXT" jt="-1" mandatory="y" />
+			<index name="pk_realizacoes" unique="PRIMARY_KEY" >
+				<column name="realizacao_id" />
+			</index>
+			<fk name="fk_realizacoes" to_schema="Default" to_table="candidatos" >
+				<fk_column name="candidato_id" pk="candidato_id" />
+			</fk>
+		</table>
+	</schema>
+	<connector name="Sqlite" database="Sqlite" driver_class="org.sqlite.JDBC" driver_jar="sqlite-jdbc-3.40.0.0.jar" driver_desc="Standard" host="localhost" port="7210" instance="C:\Users\Inteli\atividade_s02" useSystemProxy="false" />
+	<layout name="Main Layout" id="Layout-2516" show_relation="columns" >
+		<entity schema="Default" name="candidatos" color="C1D8EE" x="64" y="48" />
+		<entity schema="Default" name="enderecos" color="C1D8EE" x="496" y="224" />
+		<entity schema="Default" name="experiencias" color="C1D8EE" x="512" y="48" />
+		<entity schema="Default" name="formacoes" color="C1D8EE" x="288" y="48" />
+		<entity schema="Default" name="habilidades" color="C1D8EE" x="48" y="224" />
+		<entity schema="Default" name="persondalides" color="3986C1" x="272" y="224" />
+		<entity schema="Default" name="realizacoes" color="C1D8EE" x="736" y="48" />
+		<script name="SQL_Editor" id="Editor-2043" language="SQL" >
+			<string><![CDATA[CREATE TABLE enderecos ( 
+	endereco_id          INTEGER NOT NULL  PRIMARY KEY  ,
+	endereco_cep         VARCHAR(8) NOT NULL    ,
+	candidato_id         INTEGER     ,
+	endereco_logradouro  VARCHAR(255) NOT NULL    ,
+	endereco_numero      INTEGER NOT NULL    ,
+	endereco_complemento VARCHAR(255) NOT NULL    
+ );
+]]></string>
+		</script>
+		<script name="database_curriculo.sql" id="Editor-379" language="SQL" file="file:/C:/Users/Inteli/Desktop/M2_ENTREGA_MAURICIO_AZEVEDO/SEMANA_02/02_AUT_EST_ENTREGA/database_curriculo.sql" />
+	</layout>
+</project>
