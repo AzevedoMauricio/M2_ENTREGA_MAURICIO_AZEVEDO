@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/fonts/Poppins.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/635d1575aa.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Mauri</title>
+</head>
+<body>
+   <header>
+        <div class="logo">
+            <span>M</span>
+            <p><strong>Mauri</strong> Azevedo</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a class="scroll" href="#presentation">Sobre mim</a></li>
+                <li><a class="scroll" href="#education">Formação</a></li>
+                <li><a class="scroll" href="#projects">Projetos</a></li>
+                <li><a class="scroll" href="#accomplishments">Reconhecimentos</a></li>
+                <li><a class="scroll" href="#contact">Entre em contato</a></li>
+            </ul>
+        </nav>
+   </header>
+   <main>
+        <section id="presentation">
+            <div class="left-side">
+                <img id="mauri" src="/assets/images/mauricio.jpg" alt="Mauri">
+            </div>
+            <div class="right-side">
+                <p>Hi, I'm</p>
+                <h1>Mauri Azevedo</h1>
+                <p>Software Engineering</p>
+                <p>Técnico em informática e graduando em ciência da computação com destaque para desenvolvimento web. Interessado em tecnologias aplicadas à educação.</p>
+            </div>
+        </section>
+        <section id="education">
+            <h2>Formação</h2>
+            <div class="container">
+                <div class="card">
+                    <div class="image">
+                        <img src="./assets/images/logo_ifrn.jpg" alt="IFRN">
+                    </div>
+                    <p><strong>Técnico em Informática</strong></p>
+                    <small>IFRN, 2019 - 2022</small>
+                </div>
+                <div class="card">
+                    <div class="image">
+                        <img src="./assets/images/logo_inteli.jpg" alt="Inteli">
+                    </div>
+                    <p><strong>Bacharelado em Ciência da Computação</strong></p>
+                    <small>Inteli, 2023 - 2026</small>
+                </div>
+                <div class="card">
+                    <div class="image">
+                        <img src="./assets/images/logo_estartando_devs.jpeg" alt="Estartando Devs">
+                    </div>
+                    <p><strong>Formação em Front-End Development</strong></p>
+                    <small>Estartando Devs, 2022</small>
+                </div>
+            </div>
+        </section>
+        <section id="projects">
+            <h2>Projetos</h2>
+            <div class="container">
+                <div class="card">
+                    <div class="image">
+                        <img src="./assets/images/vtalicios.png" alt="V.talícios">
+                    </div>
+                    <p><strong>V.talícios</strong></p>
+                    <p>V.talícios é um game de plataforma 2D criado para ajudar no treinamento de compliance dos funcionários da V.tal. Ele foi desenvolvido utilizando a Engine Godot, com a linguagem GDScript.</p>
+                </div>
+                <div class="card">
+                    <div class="image">
+                        <img src="./assets/images/lumi.png" alt="Lumi">
+                    </div>
+                    <p><strong>Lumi</strong></p>
+                    <p>Lumi é uma aplicação web desenvolvida para o Laboratório de Infraestrutura em Energia do Instituto de Pesquisas Tecnológicas para dinamizar a exibição dos relatórios que eles criam sobre trechos ferroviários no Brasil. Foi desenvolvido utilizando HTML, CSS, Javascript e Bootstrap para o Front-End e, para o Back-end, utilizou-se Node.JS com Express.</p>
+                </div>
+            </div>
+        </section>
+        <section id="accomplishments">
+            <h2>Reconhecimentos</h2>
+            <div class="container">
+                <div class="item">
+                    <div class="left-side">
+                        <i class="fa-solid fa-medal"></i>
+                        <small>20+</small>
+                    </div>
+                    <div class="right-side">
+                        <p>Medalhas em olimpíadas científicas</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left-side">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <small>1.2M+</small>
+                    </div>
+                    <div class="right-side">
+                        <p>Estudantes ajudados</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contato</h2>
+            <p>Entre em contato comigo em qualquer uma das redes :)</p>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/mauricio-azevedo-neto/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li><a href="https://www.instagram.com/riskemauri/" target="_blank"><i class="fa-brands fa-square-instagram"></i></a></li>
+                <li><a id="email" href="mailto:mauricio.neto@sou.inteli.edu.br" target="_blank"><i class="fa-solid fa-envelope"></i></a></li>
+                <li><a href="https://github.com/AzevedoMauricio" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+            </ul>
+            <div class="address">
+                <i class="fa-sharp fa-solid fa-location-dot"></i>
+                <P id="address"></P>
+            </div>
+        </section>
+   </main>
+   <footer>Mauri, 2023 &copy;</footer>
+   <script src="./scroll.js"></script>
+   <script>
+        //Aqui utilizando o evento dblclick. Ele é ativado quando se clica duas vezes em um elemento. No nosso caso, o elemento que eu escolhi foi o de id "mauri", que é a minha foto.
+        $("#mauri" ).on("dblclick", function() {
+            alert("Eita como clica duas vezes na minha foto. Para você ver esse aviso, eu utilizei jQuery. Viva o jQuery!");
+        });
+
+        //Aqui, a lógica é similar ao evento passado. A diferença é que aqui é somente um clique para ativar a função alert. Ela é chamada quando se clica no ícone para enviar email.
+        $("#email" ).on("click", function() {
+            alert("Eita como envia email. Igual no tempo dos Maias, Incas e Astecas.");
+        });
+   </script>
+   <script src="request.js"></script>
+</body>
+</html>
